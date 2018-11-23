@@ -37,7 +37,7 @@ new Vue({
       currencies: ['BTC', 'ETH', 'LTC'],
       addresses: [
         '1KUAxrzv8v8YC7c2346qknmLB2BcuRRXxR',
-        '0xaC537968076Bf96fae05E105cF53B33b',
+        '0xaC537968076Bf96fae05E105cF53B33bBC90Ba4B',
         'ltc1qk938vvngm3mcky9qhxhwqfeye7hx030r2y6gn6'
       ]
     }
