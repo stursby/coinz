@@ -1,12 +1,14 @@
 {
-  "name": "functions",
+  "name": "coinz-functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
-    "serve": "firebase serve --only functions",
+    "dev": "yarn serve",
+    "serve": "firebase serve --only functions --port=9000",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "local:env": "firebase functions:config:get > .runtimeconfig.json"
   },
   "dependencies": {
     "axios": "^0.18.0",

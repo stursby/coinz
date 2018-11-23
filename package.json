@@ -1,0 +1,11 @@
+{
+  "name": "coinz",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "deploy:web": "firebase deploy --only hosting"
+  },
+  "repository": "git@gitlab.com:stursby/coinz.git",
+  "author": "Charlie Hield <charles.hield@gmail.com>",
+  "license": "MIT"
+}

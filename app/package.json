@@ -1,0 +1,26 @@
+{
+  "name": "coinz-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "nuxt:dev": "nuxt",
+    "app": "electron .",
+    "app:dev": "./node_modules/.bin/nodemon --exec yarn app --watch main.js",
+    "dev": "./node_modules/.bin/concurrently 'yarn nuxt:dev' './node_modules/.bin/wait-on http://localhost:3000 && yarn app:dev'"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cron": "^1.5.0",
+    "fuse.js": "^3.3.0",
+    "menubar": "^5.2.3",
+    "nuxt": "^2.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^3.0.10",
+    "electron-is-dev": "^1.0.1",
+    "nodemon": "^1.18.6",
+    "wait-on": "^3.2.0"
+  }
+}

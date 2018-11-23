@@ -1,0 +1,51 @@
+:root {
+  --color-black: rgb(24, 24, 35);
+  --color-slate: rgb(31, 31, 42);
+  --color-white: rgb(207, 207, 210);
+  --color-gray: rgb(84, 92, 111);
+  --seach-bar-height: 70px;
+  --body-gap: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+#__nuxt,
+#__layout {
+  height: 100%;
+  background: var(--color-black);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  border-radius: 5px;
+  margin: var(--body-gap);
+  padding-top: var(--seach-bar-height);
+  color: var(--color-white);
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.no-results {
+  max-width: 90%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

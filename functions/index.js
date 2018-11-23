@@ -10,9 +10,10 @@ exports.latest = functions.https.onRequest(async (req, res) => {
   })
 
   const { data } = await api.get('cryptocurrency/listings/latest')
-  
+
   res.set('Cache-Control', 'public, max-age=300, s-maxage=300')
+  res.set('Access-Control-Allow-Origin', '*')
   res.set('Content-Type', 'application/json')
-  
+
   return res.send(data.data)
 })

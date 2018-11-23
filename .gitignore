@@ -66,3 +66,12 @@ node_modules/
 
 # Frontend site production build folder
 dist
+
+# Env vars for running Cloud Functions locally
+.runtimeconfig.json
+
+# Nuxt files
+.nuxt
+
+# Mac Finder bs
+.DS_Store
