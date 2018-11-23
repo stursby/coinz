@@ -1,0 +1,103 @@
+:root {
+  --color-black: rgb(24, 24, 35);
+  --color-slate: rgb(31, 31, 42);
+  --color-white: rgb(207, 207, 210);
+  --color-gray: rgb(84, 92, 111);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+@media (min-height: 700px) {
+  html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  border-radius: 5px;
+  padding: 20px 20px 50px 20px;
+  color: var(--color-white);
+  background: var(--color-slate);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+header {
+  margin: 20px 0;
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--color-gray);
+}
+
+.preview {
+  max-width: 400px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top: 5px;
+}
+
+.currencies li {
+  display: inline-block;
+  font-size: 12px;
+  background: var(--color-gray);
+  padding: 1px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin: 0 5px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.currencies li.active {
+  opacity: 1;
+}
+
+.currencies li:hover {
+  opacity: 0.7;
+}
+
+.currencies li.active:hover {
+  opacity: 1;
+}
+
+.addresses {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.addresses li {
+  display: none;
+}
+
+.addresses li.active {
+  display: block;
+}

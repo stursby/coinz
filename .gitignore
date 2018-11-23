@@ -75,3 +75,6 @@ dist
 
 # Mac Finder bs
 .DS_Store
+
+# Parcel cache
+web/.cache

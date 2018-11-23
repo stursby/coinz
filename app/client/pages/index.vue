@@ -36,7 +36,6 @@ export default {
     this.fetchLatest()
 
     ipcRenderer.on('cron', () => {
-      console.log('CRON!')
       this.fetchLatest()
     })
   },
