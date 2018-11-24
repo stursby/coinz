@@ -1,5 +1,7 @@
 export default {
-  srcDir: 'client',
+  srcDir: 'src/client',
+
+  mode: 'spa',
 
   head: {
     link: [
@@ -12,10 +14,17 @@ export default {
 
   css: ['~/assets/css/main.css'],
 
+  router: {
+    mode: 'hash'
+  },
+
   build: {
-    extend(config, { isClient }) {
+    extend(config, { isDev, isClient }) {
       if (isClient) {
         config.target = 'electron-renderer'
+      }
+      if (!isDev) {
+        config.output.publicPath = './_nuxt/'
       }
     }
   }

@@ -32,7 +32,7 @@ export default {
     }
   },
 
-  async mounted() {
+  mounted() {
     this.fetchLatest()
 
     ipcRenderer.on('cron', () => {
@@ -56,11 +56,10 @@ export default {
   },
 
   methods: {
-    async fetchLatest() {
-      const { data } = await axios.get(
-        'https://coinz-app.firebaseapp.com/api/latest'
-      )
-      this.latest = data
+    fetchLatest() {
+      axios.get('https://coinz-app.firebaseapp.com/api/latest').then(res => {
+        this.latest = res.data
+      })
     }
   }
 }

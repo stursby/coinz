@@ -1,3 +1,6 @@
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true
+
+const path = require('path')
 const menubar = require('menubar')
 const isDev = require('electron-is-dev')
 const { CronJob } = require('cron')
@@ -9,7 +12,7 @@ const CONFIG = {
   },
   entry: {
     dev: 'http://localhost:3000',
-    prod: `file://${__dirname}/dist/index.html`
+    prod: `file://${path.join(__dirname, '..', 'dist/index.html')}`
   },
   cron: '*/5 * * * *'
 }
@@ -46,4 +49,5 @@ function addWindowListeners() {
 mb.on('ready', () => {
   setupCron()
   addWindowListeners()
+  isDev && mb.window.toggleDevTools()
 })
