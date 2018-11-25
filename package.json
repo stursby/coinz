@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "deploy:web": "firebase deploy --only hosting"
+    "deploy:web": "./node_modules/.bin/firebase deploy --only hosting"
   },
   "repository": "git@gitlab.com:stursby/coinz.git",
   "author": "Charlie Hield <charles.hield@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "firebase-tools": "^6.1.1"
+  }
 }

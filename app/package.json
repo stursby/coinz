@@ -11,7 +11,7 @@
     "app": "electron-forge start",
     "package": "electron-forge package",
     "make": "yarn build && electron-forge make",
-    "publish": "electron-forge publish"
+    "publish": "export $(cat .env | xargs) && electron-forge publish"
   },
   "keywords": [
     "crypto",
@@ -26,18 +26,21 @@
       "packagerConfig": {
         "icon": "src/icons/icon.icns"
       },
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "stursby",
+              "name": "coinz"
+            }
+          }
+        }
+      ],
       "makers": [
         {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "Coinz"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
+          "name": "@electron-forge/maker-dmg",
+          "config": {}
         }
       ]
     }
@@ -53,8 +56,8 @@
   },
   "devDependencies": {
     "@electron-forge/cli": "6.0.0-beta.30",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.22",
-    "@electron-forge/maker-zip": "6.0.0-beta.30",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.22",
+    "@electron-forge/publisher-github": "^6.0.0-beta.22",
     "electron": "3.0.10"
   }
 }
