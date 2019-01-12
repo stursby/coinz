@@ -32,7 +32,7 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   border-radius: 5px;
   padding: 20px 20px 30px 20px;
   color: var(--color-white);
@@ -98,4 +98,24 @@ ul {
 
 .addresses li.active {
   display: block;
+}
+
+.download {
+  display: inline-block;
+  margin-bottom: 30px;
+  background: var(--color-white);
+  color: var(--color-slate);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.download:hover {
+  opacity: 0.8;
+}
+
+.download small {
+  font-size: 11px;
+  opacity: 0.6;
 }
