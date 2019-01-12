@@ -53,10 +53,6 @@ export default {
   },
 
   methods: {
-    sort(value) {
-      this.list.sort(value, { order: 'asc' })
-    },
-
     percentIndex(coin) {
       return this.coinsByPercentChange.indexOf(coin)
     },
