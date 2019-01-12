@@ -1,22 +1,24 @@
 <template>
   <div class="coin-card">
     <img class="sparkline" :src="sparklineURL" :alt="`${coin.name} sparkline`">
-    <div class="left">
-      <h3>{{ coin.name }}</h3>
-      <h5>{{ coin.symbol }}</h5>
+    <div class="left rank" :data-rank="coin.cmc_rank">
+      <h3 class="name" :data-name="coin.name">{{ coin.name }}</h3>
+      <h5 class="symbol" :data-symbol="coin.symbol">{{ coin.symbol }}</h5>
     </div>
     <div class="right">
-      <h3>{{ price }}</h3>
-      <h5 :style="percentChangeStyle">{{ percentChange }}%</h5>
+      <h3 class="price" :data-price="priceIndex">{{ price }}</h3>
+      <h5
+        class="percent"
+        :data-percent="percentIndex"
+        :style="percentChangeStyle"
+      >{{ percentChange }}%</h5>
     </div>
   </div>
 </template>
 
 <script>
-const ASSET_BASE = ''
-
 export default {
-  props: ['coin'],
+  props: ['coin', 'coins'],
 
   computed: {
     price() {
@@ -50,8 +52,22 @@ export default {
       return `https://s2.coinmarketcap.com/generated/sparklines/web/7d/usd/${this.coin.id}.png`
     },
 
-    logoURL() {
-      return
+    percentIndex() {
+      return this.coins
+        .map(coin => coin.quote.USD.percent_change_24h)
+        .sort(function(a, b) {
+          return a - b
+        })
+        .indexOf(this.coin.quote.USD.percent_change_24h)
+    },
+
+    priceIndex() {
+      return this.coins
+        .map(coin => coin.quote.USD.price)
+        .sort(function(a, b) {
+          return a - b
+        })
+        .indexOf(this.coin.quote.USD.price)
     }
   }
 }
@@ -81,18 +97,6 @@ export default {
 .coin-card:hover > .sparkline {
   opacity: 0.1;
 }
-
-/* .coin-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 130px;
-  width: 50px;
-  height: 100%;
-  display: block;
-  background: linear-gradient(90deg, transparent, var(--color-slate));
-  z-index: 1;
-} */
 
 .left {
   margin-right: auto;

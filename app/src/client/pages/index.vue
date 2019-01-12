@@ -1,8 +1,11 @@
 <template>
   <div>
-    <title-bar v-model="search"/>
-    <coins-list :coins="coins"/>
-    <p class="no-results" v-if="noSearchResults">No results found for “<b>{{ search }}</b>”</p>
+    <title-bar v-model="search" :toggleSort="toggleSort"/>
+    <coins-list :coins="coins" :show-sort="showSort"/>
+    <p class="no-results" v-if="noSearchResults">
+      No results found for “
+      <b>{{ search }}</b>”
+    </p>
   </div>
 </template>
 
@@ -28,12 +31,17 @@ export default {
   data() {
     return {
       latest: [],
-      search: ''
+      search: '',
+      showSort: false
     }
   },
 
   mounted() {
     this.fetchLatest()
+
+    setTimeout(() => {
+      this.fetchLatest()
+    }, 10000)
 
     ipcRenderer.on('cron', () => {
       this.fetchLatest()
@@ -60,6 +68,10 @@ export default {
       axios.get('https://coinz-app.firebaseapp.com/api/latest').then(res => {
         this.latest = res.data
       })
+    },
+
+    toggleSort() {
+      this.showSort = !this.showSort
     }
   }
 }

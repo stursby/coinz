@@ -1,13 +1,10 @@
 <template>
   <div class="title-bar">
     <coinz-logo class="logo"/>
+    <filter-icon class="filter-icon" @click.native="toggleSort"/>
     <div class="search-wrapper">
       <search-icon class="search-icon"/>
-      <input
-        class="search-input"
-        type="text" placeholder="Search"
-        @keyup="searchKeyup"
-      >
+      <input class="search-input" type="text" placeholder="Search" @keyup="searchKeyup">
     </div>
   </div>
 </template>
@@ -15,11 +12,15 @@
 <script>
 import CoinzLogo from '~/components/CoinzLogo'
 import SearchIcon from '~/components/SearchIcon'
+import FilterIcon from '~/components/FilterIcon'
 
 export default {
+  props: ['toggleSort'],
+
   components: {
     CoinzLogo,
-    SearchIcon
+    SearchIcon,
+    FilterIcon
   },
 
   model: {
@@ -93,5 +94,11 @@ export default {
 
 .search-input::selection {
   background: var(--color-white);
+}
+
+.filter-icon {
+  fill: var(--color-white);
+  margin-right: 15px;
+  cursor: pointer;
 }
 </style>
